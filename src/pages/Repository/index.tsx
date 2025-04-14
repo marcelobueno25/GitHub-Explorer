@@ -53,7 +53,7 @@ const Repository: React.FC = () => {
     <>
       <Header>
         <img src={logoImg} alt="Github Explorer" />
-        <Link to="/">
+        <Link to="/explorer.github.io/">
           <FiChevronLeft size={16} />
           Voltar
         </Link>
