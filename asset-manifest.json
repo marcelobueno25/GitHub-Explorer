@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/GitHub-Explorer/static/js/main.9cc3ee88.js",
+    "static/media/Logo.svg": "/GitHub-Explorer/static/media/Logo.6354bf3f4d534d499c956048439a4243.svg",
+    "static/media/Github.svg": "/GitHub-Explorer/static/media/Github.2b8edc7236f8313683a5774faff6467c.svg",
+    "index.html": "/GitHub-Explorer/index.html",
+    "main.9cc3ee88.js.map": "/GitHub-Explorer/static/js/main.9cc3ee88.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9cc3ee88.js"
+  ]
+}
