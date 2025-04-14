@@ -17,12 +17,21 @@ interface Repository {
 const Dashboard: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const [inputError, setInputError] = useState('');
-  const [repositories, setRepositories] = useState<Repository[]>(() => {
-    const storagedRepositories = localStorage.getItem('@GithubExplorer:repositories');
+const [repositories, setRepositories] = useState<Repository[]>(() => {
+  const storagedRepositories = localStorage.getItem('@GithubExplorer:repositories');
+
+  try {
     if (storagedRepositories) {
       return JSON.parse(storagedRepositories);
     }
-  });
+  } catch (error) {
+    console.error('Erro ao fazer parse do localStorage:', error);
+    localStorage.removeItem('@GithubExplorer:repositories');
+  }
+
+  return [];
+});
+
 
   useEffect(() => {
     localStorage.setItem('@GithubExplorer:repositories', JSON.stringify(repositories));
@@ -68,7 +77,7 @@ const Dashboard: React.FC = () => {
       {inputError && <Error>{inputError}</Error>}
 
       <Repositories>
-        {repositories.map(repository => (
+        {repositories?.map(repository => (
           <Link key={repository.full_name} to={`/repository/${repository.full_name}`}>
             <img src={repository.owner.avatar_url}
               alt={repository.owner.login} />
